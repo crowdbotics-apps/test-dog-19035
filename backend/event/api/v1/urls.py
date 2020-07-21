@@ -1,6 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .viewsets import (
+    CategoryViewSet,
     FAQViewSet,
     LocationViewSet,
     MyScheduleViewSet,
@@ -16,6 +17,7 @@ router.register("presenter", PresenterViewSet)
 router.register("location", LocationViewSet)
 router.register("myschedule", MyScheduleViewSet)
 router.register("sponsor", SponsorViewSet)
+router.register("category", CategoryViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

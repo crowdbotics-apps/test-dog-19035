@@ -1,5 +1,13 @@
 from rest_framework import serializers
-from event.models import FAQ, Location, MySchedule, Presenter, Schedule, Sponsor
+from event.models import (
+    Category,
+    FAQ,
+    Location,
+    MySchedule,
+    Presenter,
+    Schedule,
+    Sponsor,
+)
 
 
 class FAQSerializer(serializers.ModelSerializer):
@@ -35,4 +43,10 @@ class MyScheduleSerializer(serializers.ModelSerializer):
 class SponsorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sponsor
+        fields = "__all__"
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
         fields = "__all__"

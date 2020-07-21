@@ -58,4 +58,10 @@ class Sponsor(models.Model):
     )
 
 
+class Category(models.Model):
+    "Generated Model"
+    name = models.CharField(max_length=256,)
+    description = models.TextField()
+
+
 # Create your models here.
