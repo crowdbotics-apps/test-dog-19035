@@ -6,6 +6,7 @@ from .viewsets import (
     MyScheduleViewSet,
     PresenterViewSet,
     ScheduleViewSet,
+    SponsorViewSet,
 )
 
 router = DefaultRouter()
@@ -14,6 +15,7 @@ router.register("schedule", ScheduleViewSet)
 router.register("presenter", PresenterViewSet)
 router.register("location", LocationViewSet)
 router.register("myschedule", MyScheduleViewSet)
+router.register("sponsor", SponsorViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

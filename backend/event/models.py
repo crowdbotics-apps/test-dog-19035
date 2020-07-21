@@ -46,4 +46,16 @@ class MySchedule(models.Model):
     )
 
 
+class Sponsor(models.Model):
+    "Generated Model"
+    name = models.TextField(max_length=256,)
+    logo_image = models.SlugField(max_length=150,)
+    sponsor_level = models.TextField()
+    presenter = models.BooleanField()
+    website = models.URLField()
+    location = models.ForeignKey(
+        "event.Location", on_delete=models.CASCADE, related_name="sponsor_location",
+    )
+
+
 # Create your models here.

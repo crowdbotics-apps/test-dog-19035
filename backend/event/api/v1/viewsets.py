@@ -1,11 +1,12 @@
 from rest_framework import authentication
-from event.models import FAQ, Location, MySchedule, Presenter, Schedule
+from event.models import FAQ, Location, MySchedule, Presenter, Schedule, Sponsor
 from .serializers import (
     FAQSerializer,
     LocationSerializer,
     MyScheduleSerializer,
     PresenterSerializer,
     ScheduleSerializer,
+    SponsorSerializer,
 )
 from rest_framework import viewsets
 
@@ -53,3 +54,12 @@ class MyScheduleViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = MySchedule.objects.all()
+
+
+class SponsorViewSet(viewsets.ModelViewSet):
+    serializer_class = SponsorSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Sponsor.objects.all()
