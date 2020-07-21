@@ -9,31 +9,65 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('event', '0004_vendor'),
+        ("event", "0004_vendor"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='vendor',
-            name='associated_name',
+            model_name="vendor",
+            name="associated_name",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='vendor',
-            name='category',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='vendor_category', to='event.Category'),
+            model_name="vendor",
+            name="category",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="vendor_category",
+                to="event.Category",
+            ),
         ),
         migrations.AddField(
-            model_name='vendor',
-            name='location',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='vendor_location', to='event.Location'),
+            model_name="vendor",
+            name="location",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="vendor_location",
+                to="event.Location",
+            ),
         ),
         migrations.CreateModel(
-            name='Favourite',
+            name="Favourite",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='favourite_user', to=settings.AUTH_USER_MODEL)),
-                ('vendor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='favourite_vendor', to='event.Vendor')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="favourite_user",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "vendor",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="favourite_vendor",
+                        to="event.Vendor",
+                    ),
+                ),
             ],
         ),
     ]

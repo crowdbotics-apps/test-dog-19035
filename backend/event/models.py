@@ -73,16 +73,16 @@ class Vendor(models.Model):
     associated_name = models.TextField(null=True, blank=True,)
     location = models.ForeignKey(
         "event.Location",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="vendor_location",
     )
     category = models.ForeignKey(
         "event.Category",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="vendor_category",
     )
 
