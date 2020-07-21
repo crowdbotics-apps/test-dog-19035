@@ -64,4 +64,12 @@ class Category(models.Model):
     description = models.TextField()
 
 
+class Vendor(models.Model):
+    "Generated Model"
+    name = models.CharField(max_length=256,)
+    logo_image = models.SlugField(max_length=150,)
+    website = models.URLField()
+    description = models.TextField()
+
+
 # Create your models here.

@@ -7,6 +7,7 @@ from event.models import (
     Presenter,
     Schedule,
     Sponsor,
+    Vendor,
 )
 from .serializers import (
     CategorySerializer,
@@ -16,6 +17,7 @@ from .serializers import (
     PresenterSerializer,
     ScheduleSerializer,
     SponsorSerializer,
+    VendorSerializer,
 )
 from rest_framework import viewsets
 
@@ -81,3 +83,12 @@ class CategoryViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Category.objects.all()
+
+
+class VendorViewSet(viewsets.ModelViewSet):
+    serializer_class = VendorSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Vendor.objects.all()

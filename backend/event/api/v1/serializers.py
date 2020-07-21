@@ -7,6 +7,7 @@ from event.models import (
     Presenter,
     Schedule,
     Sponsor,
+    Vendor,
 )
 
 
@@ -49,4 +50,10 @@ class SponsorSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
+        fields = "__all__"
+
+
+class VendorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vendor
         fields = "__all__"
