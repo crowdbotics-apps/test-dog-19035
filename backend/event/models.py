@@ -70,6 +70,33 @@ class Vendor(models.Model):
     logo_image = models.SlugField(max_length=150,)
     website = models.URLField()
     description = models.TextField()
+    associated_name = models.TextField(null=True, blank=True,)
+    location = models.ForeignKey(
+        "event.Location",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="vendor_location",
+    )
+    category = models.ForeignKey(
+        "event.Category",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="vendor_category",
+    )
+
+
+class Favourite(models.Model):
+    "Generated Model"
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="favourite_user",
+    )
+    vendor = models.ForeignKey(
+        "event.Vendor", on_delete=models.CASCADE, related_name="favourite_vendor",
+    )
 
 
 # Create your models here.

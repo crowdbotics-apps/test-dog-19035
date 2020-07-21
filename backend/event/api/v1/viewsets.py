@@ -2,6 +2,7 @@ from rest_framework import authentication
 from event.models import (
     Category,
     FAQ,
+    Favourite,
     Location,
     MySchedule,
     Presenter,
@@ -12,6 +13,7 @@ from event.models import (
 from .serializers import (
     CategorySerializer,
     FAQSerializer,
+    FavouriteSerializer,
     LocationSerializer,
     MyScheduleSerializer,
     PresenterSerializer,
@@ -92,3 +94,12 @@ class VendorViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Vendor.objects.all()
+
+
+class FavouriteViewSet(viewsets.ModelViewSet):
+    serializer_class = FavouriteSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Favourite.objects.all()

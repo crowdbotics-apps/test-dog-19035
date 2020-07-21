@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .viewsets import (
     CategoryViewSet,
     FAQViewSet,
+    FavouriteViewSet,
     LocationViewSet,
     MyScheduleViewSet,
     PresenterViewSet,
@@ -20,6 +21,7 @@ router.register("myschedule", MyScheduleViewSet)
 router.register("sponsor", SponsorViewSet)
 router.register("category", CategoryViewSet)
 router.register("vendor", VendorViewSet)
+router.register("favourite", FavouriteViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
